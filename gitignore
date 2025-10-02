@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+*.log
+
+# Virtualenv
+venv/
+ENV/
+.env
+.venv/
+
+# Streamlit cache
+.streamlit/
+
+# PlatformIO
+.pio/
+.vscode/
+
+# IDEs
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Jupyter/colab
+*.ipynb_checkpoints
+
+# Dados temporários
+*.csv
+*.xlsx
+*.sqlite
+*.db

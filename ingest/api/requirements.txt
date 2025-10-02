@@ -1,0 +1,6 @@
+Flask==2.3.3
+PyMySQL==1.1.0
+flasgger==0.9.7.1
+joblib==1.4.2
+pandas==2.2.3
+requests
