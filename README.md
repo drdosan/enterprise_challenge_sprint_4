@@ -89,6 +89,10 @@ python app.py
 
 Scripts em `/db`.
 
+### Modelo Relacional:
+
+<img src="assets/diagrama_er.png" alt="Simulação ESP32 no Wokwi" width="600"/>
+
 ### Exemplo (MySQL):
 ```bash
 mysql -u root -p < db/create_tables_mysql.sql
@@ -98,6 +102,8 @@ mysql -u root -p < db/insert_sample_data.sql
 ---
 
 ## ⚙️ 3. ESP32 + Wokwi
+
+<img src="assets/esp32.png" alt="Simulação ESP32 no Wokwi" width="600"/>
 
 Na pasta `/ingest/esp32`.  
 Inclui simulação com:
