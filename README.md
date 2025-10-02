@@ -117,21 +117,78 @@ Inclui simulação com:
 
 ## ⚙️ 4. Machine Learning
 
-Na pasta `/ml`.
+Tudo fica em `/ml`.
 
-### Treino:
+### 📦 Instalação
 ```bash
 cd ml
 pip install -r requirements.txt
+```
+
+### 🎓 Treino
+```bash
 python train_model.py
 ```
 
-### Predição:
+O script:
+- Lê as leituras do MySQL (últimas 24h), faz **pivot** por sensor e **alinhamento temporal** (bucket de `30s`).
+- Mapeia os nomes dos sensores para as **features** do modelo.
+- Gera o rótulo `target_irrigar` pela regra: `umidade_solo < 30`.
+- Treina um **RandomForest** e salva métricas e figuras.
+
+**Artefatos gerados:**
+- Modelo: `ml/models/model.joblib`
+- Relatório: `ml/reports/metrics.txt`
+- Figuras:
+  - `ml/figuras/matriz_confusao.png` *(sempre gerada; se houver só uma classe no teste, vira uma imagem informativa)*
+  - `ml/figuras/feature_importance.png`
+  - `ml/figuras/timeseries.png`
+  - `ml/figuras/features_hist.png`
+  - *(se o teste tiver as duas classes)* `ml/figuras/roc_curve.png` e `ml/figuras/pr_curve.png`
+
+> Obs.: o Matplotlib é forçado para `Agg`, então não precisa de interface gráfica para salvar PNGs.
+
+### 🔮 Predição
 ```bash
 python predict_model.py
 ```
 
-Gera modelo salvo em `ml/models/model.joblib`.
+Por padrão, o script:
+- Lê as leituras mais recentes do MySQL (últimos **30 min**),
+- Reaplica o mesmo pré-processamento do treino,
+- Usa a **última linha válida** para prever,
+- Imprime o resultado no console e grava em:  
+  **`ml/reports/predict_last.json`**
+
+Exemplo de saída:
+```json
+{
+  "timestamp": "2025-10-02T16:20:31Z",
+  "source": "db_last_valid_row",
+  "features": { "...": 0 },
+  "pred": 0,
+  "proba_irrigar": 0.13,
+  "regra_umidade_solo<limiar": 0
+}
+```
+
+#### Parâmetros úteis do `predict_model.py`
+- Mudar a janela de leitura do banco:
+  ```bash
+  python predict_model.py --minutes 120
+  ```
+- **Modo manual** (sem banco; informar todas as features):
+  ```bash
+  python predict_model.py --manual     --temperatura_solo 22.5 --qualidade_ar_ppm 410     --temperatura_ar 26.1 --umidade_ar 55.3     --umidade_solo 28.0 --luminosidade 300
+  ```
+- Apontar um modelo específico:
+  ```bash
+  python predict_model.py --model models/model.joblib
+  ```
+
+### 🧩 Notas
+- Se o conjunto de teste ficar com **apenas uma classe**, a matriz de confusão vira uma **imagem informativa** e curvas ROC/PR **não são** geradas.
+- Os dados de conexão MySQL estão no início dos scripts (`DB_CFG`). Ajuste se necessário.
 
 ---
 
