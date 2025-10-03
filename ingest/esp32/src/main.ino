@@ -9,7 +9,7 @@
 // ----------- REDE / ENDPOINTS -----------
 #define WIFI_SSID   "Wokwi-GUEST"
 #define WIFI_PASS   ""
-#define API_BASE    "http://192.168.0.151:5000"
+#define API_BASE    "http://192.168.0.73:5000"
 #define URL_STATUS   API_BASE "/status-irrigacao"
 #define URL_LEITURAS API_BASE "/leituras/batch"
 

@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-10-03T04:13:30",
+  "source": "db_last_valid_row",
+  "features": {
+    "temperatura_solo": 35.0,
+    "qualidade_ar_ppm": 1198.0,
+    "temperatura_ar": 26.0,
+    "umidade_ar": 55.8,
+    "umidade_solo": 44.2002,
+    "luminosidade": 38.7057
+  },
+  "pred": 0,
+  "proba_irrigar": 0.0,
+  "regra_umidade_solo<limiar": 0
+}

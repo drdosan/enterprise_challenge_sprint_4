@@ -1,0 +1,8 @@
+Treinado em: 2025-10-03T04:19:46.799918ZDistribuição de classes (total=109): {0: 107, 1: 2}Accuracy: 0.9643              precision    recall  f1-score   support
+
+           0     0.9643    1.0000    0.9818        27
+           1     0.0000    0.0000    0.0000         1
+
+    accuracy                         0.9643        28
+   macro avg     0.4821    0.5000    0.4909        28
+weighted avg     0.9298    0.9643    0.9468        28
