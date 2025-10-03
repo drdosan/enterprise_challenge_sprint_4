@@ -9,7 +9,7 @@
 # 🌱 FASE 5 - ENTERPRISE CHALLENGE (SPRINT 4)
 
 ### ▶️ Vídeo de Evidência do Funcionamento do Projeto
-👉 [Link do vídeo no YouTube (não listado)](https://youtube.com)
+👉 [https://youtu.be/R57j9LmPApc](https://youtu.be/R57j9LmPApc)
 
 ---
 
